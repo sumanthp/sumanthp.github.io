@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/home/static/css/main.956fad23.chunk.css",
+    "main.js": "/home/static/js/main.7771f682.chunk.js",
+    "main.js.map": "/home/static/js/main.7771f682.chunk.js.map",
+    "runtime-main.js": "/home/static/js/runtime-main.3c590061.js",
+    "runtime-main.js.map": "/home/static/js/runtime-main.3c590061.js.map",
+    "static/js/2.19e99e5d.chunk.js": "/home/static/js/2.19e99e5d.chunk.js",
+    "static/js/2.19e99e5d.chunk.js.map": "/home/static/js/2.19e99e5d.chunk.js.map",
+    "index.html": "/home/index.html",
+    "precache-manifest.2e5030c8bab9b7ba674f8060ef0226a4.js": "/home/precache-manifest.2e5030c8bab9b7ba674f8060ef0226a4.js",
+    "service-worker.js": "/home/service-worker.js",
+    "static/css/main.956fad23.chunk.css.map": "/home/static/css/main.956fad23.chunk.css.map",
+    "static/js/2.19e99e5d.chunk.js.LICENSE.txt": "/home/static/js/2.19e99e5d.chunk.js.LICENSE.txt",
+    "static/media/mcafee.png": "/home/static/media/mcafee.7d7fb215.png",
+    "static/media/sumanthpolisetty.pdf": "/home/static/media/sumanthpolisetty.0d6d063a.pdf",
+    "static/media/sumanthpolisetty.jpg": "/home/static/media/sumanthpolisetty.135caca5.jpg",
+    "static/media/tavant.jpg": "/home/static/media/tavant.9d3e5adf.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3c590061.js",
+    "static/js/2.19e99e5d.chunk.js",
+    "static/css/main.956fad23.chunk.css",
+    "static/js/main.7771f682.chunk.js"
+  ]
+}
