@@ -162,4 +162,101 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Neural Network Canvas Background
+    const canvas = document.getElementById('particle-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        let mouse = { x: null, y: null };
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.x;
+            mouse.y = event.y;
+        });
+
+        class Particle {
+            constructor(x, y, dx, dy, size) {
+                this.x = x; this.y = y;
+                this.dx = dx; this.dy = dy;
+                this.size = size;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = 'rgba(99, 102, 241, 0.5)';
+                ctx.fill();
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) this.dx = -this.dx;
+                if (this.y > canvas.height || this.y < 0) this.dy = -this.dy;
+                this.x += this.dx;
+                this.y += this.dy;
+                this.draw();
+            }
+        }
+
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            let numParticles = Math.min((canvas.width * canvas.height) / 18000, 100);
+            for (let i = 0; i < numParticles; i++) {
+                let size = (Math.random() * 2) + 0.5;
+                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                let dx = (Math.random() - 0.5) * 0.8;
+                let dy = (Math.random() - 0.5) * 0.8;
+                particles.push(new Particle(x, y, dx, dy, size));
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+            }
+            connect();
+        }
+
+        function connect() {
+            let opacityValue = 1;
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    let distance = ((particles[a].x - particles[b].x) * (particles[a].x - particles[b].x)) + 
+                                   ((particles[a].y - particles[b].y) * (particles[a].y - particles[b].y));
+                    if (distance < 18000) {
+                        opacityValue = 1 - (distance / 18000);
+                        ctx.strokeStyle = `rgba(99, 102, 241, ${opacityValue * 0.3})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+                
+                // Connect to mouse
+                if (mouse.x != null && mouse.y != null) {
+                    let mouseDistance = ((particles[a].x - mouse.x) * (particles[a].x - mouse.x)) + 
+                                        ((particles[a].y - mouse.y) * (particles[a].y - mouse.y));
+                    if (mouseDistance < 25000) {
+                        ctx.strokeStyle = `rgba(139, 92, 246, ${(1 - mouseDistance/25000) * 0.6})`;
+                        ctx.lineWidth = 1.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        window.addEventListener('resize', init);
+        window.addEventListener('mouseout', () => { mouse.x = null; mouse.y = null; });
+
+        init();
+        animate();
+    }
 });

@@ -36,15 +36,25 @@ a {
     transition: color 0.3s ease;
 }
 
-/* Background Mesh */
+/* Background Mesh Canvas */
 .background-mesh {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: -1;
+    z-index: -2;
+    pointer-events: none;
     overflow: hidden;
+}
+
+.canvas-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
     pointer-events: none;
 }
 
@@ -551,6 +561,69 @@ a {
 .timeline-content p {
     color: var(--text-secondary);
     font-size: 0.95rem;
+}
+
+/* Architecture Diagram */
+.arch-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    background: rgba(20, 20, 30, 0.4);
+    overflow-x: auto;
+}
+
+.arch-node {
+    padding: 0.8rem 1.2rem;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid var(--accent-primary);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    min-width: 100px;
+}
+
+.arch-endpoints {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.arch-arrow {
+    position: relative;
+    color: var(--text-secondary);
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.flow-dot {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background: #a5b4fc;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 8px #a5b4fc;
+    animation: flow 2s infinite linear;
+    z-index: 3;
+}
+
+.delay-1 { animation-delay: 0.6s; }
+.delay-2 { animation-delay: 1.2s; }
+
+@keyframes flow {
+    0% { left: 0%; opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { left: 80%; opacity: 0; }
 }
 
 /* Footer */
