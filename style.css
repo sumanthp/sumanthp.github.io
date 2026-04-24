@@ -400,6 +400,100 @@ a {
 .function { color: #61afef; }
 .string { color: #98c379; }
 
+/* Terminal Widget */
+.terminal-container {
+    padding: 0;
+    overflow: hidden;
+    margin: 0 auto 4rem;
+    max-width: 900px;
+    border: 1px solid var(--glass-border);
+}
+
+.terminal-header {
+    background: #1a1a24;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 8px;
+    margin-right: 1.5rem;
+}
+
+.terminal-title {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.terminal-body {
+    background: rgba(10, 10, 15, 0.9);
+    padding: 1.5rem;
+    min-height: 250px;
+    max-height: 400px;
+    overflow-y: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.terminal-output {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.terminal-line {
+    color: #e2e8f0;
+    word-break: break-word;
+}
+
+.terminal-prompt { color: #61afef; font-weight: bold; margin-right: 0.5rem; }
+.terminal-thought { color: #8b5cf6; font-style: italic; }
+.terminal-action { color: #c678dd; }
+.terminal-success { color: #98c379; }
+.terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background: #e2e8f0;
+    animation: blink 1s step-end infinite;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+.terminal-prompts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(20, 20, 30, 0.5);
+    border-top: 1px solid var(--glass-border);
+}
+
+.prompt-btn {
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: var(--text-primary);
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.prompt-btn:hover {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
 /* Timeline */
 .timeline {
     position: relative;

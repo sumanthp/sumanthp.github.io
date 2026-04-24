@@ -55,6 +55,29 @@
         </div>
     </header>
 
+    <section id="ai-demo" class="section fade-in" style="padding-top: 0;">
+        <div class="terminal-container glass-card">
+            <div class="terminal-header">
+                <div class="terminal-dots">
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                </div>
+                <div class="terminal-title">Sumanth_Agent_v2.0 - bash</div>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-output" id="terminal-output">
+                    <div class="terminal-line"><span class="terminal-prompt">system@oasis:~$</span> Initializing Sumanth Agent Context...</div>
+                    <div class="terminal-line"><span class="terminal-prompt">system@oasis:~$</span> Modules loaded: LangGraph, MCP, Bedrock, Ollama.</div>
+                    <div class="terminal-line"><span class="terminal-prompt">system@oasis:~$</span> Ready. How can I help you learn about Sumanth? <span class="terminal-cursor"></span></div>
+                </div>
+            </div>
+            <div class="terminal-prompts">
+                <button class="prompt-btn" data-query="skills">"What are his core AI skills?"</button>
+                <button class="prompt-btn" data-query="experience">"Summarize his experience at Tavant."</button>
+                <button class="prompt-btn" data-query="contact">"How can I contact Sumanth?"</button>
+            </div>
+        </div>
+    </section>
+
     <section id="about" class="section fade-in">
         <h2 class="section-title">Technical Expertise</h2>
         <div class="skills-grid">
