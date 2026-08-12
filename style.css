@@ -372,6 +372,50 @@ a {
     gap: 1rem;
 }
 
+/* More Open Source repo grid */
+.subsection-title {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin: 4rem 0 1.5rem;
+    text-align: center;
+}
+
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.repo-card {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 1.75rem;
+}
+
+.repo-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.repo-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+}
+
+.repo-tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    letter-spacing: 0.5px;
+}
+
 /* Code Window */
 .code-window {
     background: #0d0d12;
@@ -642,11 +686,26 @@ a {
 }
 
 .article-card {
+    position: relative;
     display: flex;
     flex-direction: column;
     text-align: left;
     padding: 1.5rem;
     transition: all 0.3s ease;
+}
+
+.article-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.6rem;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 20px;
+    color: #a5b4fc;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .article-card:hover {
@@ -716,16 +775,56 @@ a {
 @media (max-width: 768px) {
     .nav-links {
         display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(10, 10, 15, 0.97);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--glass-border);
+        padding: 0.5rem 5% 1.5rem;
     }
-    
+
+    .nav-links.mobile-open {
+        display: flex;
+    }
+
+    .nav-links a {
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-links a.btn-outline {
+        margin-top: 1rem;
+        text-align: center;
+        border-bottom: 1px solid var(--glass-border);
+    }
+
     .hamburger {
         display: block;
+        z-index: 101;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 
     .hero-actions {
         flex-direction: column;
     }
-    
+
     .premium-text {
         font-size: 2.5rem;
     }

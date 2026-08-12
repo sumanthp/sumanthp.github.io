@@ -32,15 +32,21 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Simple mobile menu toggle (for demonstration)
+    // Mobile menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
-    if (hamburger) {
+    if (hamburger && navLinks) {
         hamburger.addEventListener('click', () => {
-            // In a real implementation, you'd toggle a class to show/hide a mobile menu
-            // For now, we'll just alert since the layout is simple
-            alert('Mobile menu clicked. In a full implementation, this would slide out a menu.');
+            navLinks.classList.toggle('mobile-open');
+            hamburger.classList.toggle('active');
+        });
+
+        navLinks.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('mobile-open');
+                hamburger.classList.remove('active');
+            });
         });
     }
 

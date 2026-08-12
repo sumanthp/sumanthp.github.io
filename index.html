@@ -167,10 +167,73 @@
             </div>
         </div>
 
-        <div class="glass-card fade-in" style="margin-top: 3rem; text-align: center; padding: 2rem;">
-            <h3>More Open Source Repositories Coming Soon...</h3>
-            <p style="color: var(--text-secondary); margin-top: 0.5rem;">Stay tuned for more Agentic architectures and
-                enterprise AI tools.</p>
+        <div class="project-showcase glass-card fade-in" style="margin-top: 3rem;">
+            <div class="project-content">
+                <div class="project-badge">OPEN SOURCE</div>
+                <h3>reclab</h3>
+                <p>A self-hosted platform for reasoning about, configuring, and benchmarking recommendation system
+                    architectures. It profiles your data, ranks candidate architectures with a plain-language
+                    rationale, then actually trains and evaluates them so you can check that reasoning against real
+                    results instead of just trusting it.</p>
+                <ul class="project-features">
+                    <li>✓ Three architectures in plain NumPy — matrix factorization, SASRec, hybrid LLM re-ranker</li>
+                    <li>✓ Validated end-to-end on MovieLens 100K and Amazon Reviews 2023</li>
+                    <li>✓ FastAPI + React UI with async training jobs and run history</li>
+                    <li>✓ 150+ automated tests, including a Playwright end-to-end suite</li>
+                </ul>
+                <div class="project-actions">
+                    <a href="https://github.com/sumanthp/reclab" target="_blank" class="btn-primary">View on
+                        GitHub</a>
+                    <a href="https://sumanthp.github.io/reclab/" target="_blank" class="btn-outline">Live Demo</a>
+                </div>
+            </div>
+            <div class="project-visual">
+                <div class="code-window">
+                    <div class="mockup-header">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    </div>
+                    <div class="mockup-body">
+                        <pre><code>$ scripts/demo.sh
+
+> Profiling dataset...
+> Shortlist: <span class="function">sasrec</span> (low_confidence: <span class="keyword">false</span>)
+> Training + evaluating 3 architectures...
+> Checking shortlist pick against measured Recall@K...
+> <span class="string">Match.</span> Done in 41s.</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="subsection-title">More Open Source</h3>
+        <div class="repo-grid">
+            <a href="https://github.com/sumanthp/socratic-studio" target="_blank" class="repo-card glass-card fade-in">
+                <h4>The Socratic Studio</h4>
+                <p>A voice-to-voice AI tutor built for the Kaggle Gemma hackathon. Instead of giving answers, a
+                    multi-agent council (Architect, Auditor, Debugger, Tutor) asks the next question that gets a
+                    student to the "aha" moment, grounded against real curriculum via function calling.</p>
+                <span class="repo-tag">Next.js · FastAPI · Gemma · Ollama</span>
+            </a>
+            <a href="https://github.com/sumanthp/agentsync-vcs" target="_blank" class="repo-card glass-card fade-in">
+                <h4>agentsync-vcs</h4>
+                <p>A behavior compiler and version-control system for AI agent configuration. Maintain one versioned
+                    source of truth in Git and compile it to native rules for Cursor, Claude Code, Copilot, Windsurf,
+                    and more. Published on PyPI.</p>
+                <span class="repo-tag">Python · PyPI · CI/CD</span>
+            </a>
+            <a href="https://github.com/sumanthp/fairdrive-auto" target="_blank" class="repo-card glass-card fade-in">
+                <h4>FairDrive Auto</h4>
+                <p>An AI-native auto insurance prototype for immigrants and first-time U.S. drivers, who often face
+                    high premiums for lacking prior U.S. insurance history. Replaces the long form with a driving
+                    story, an "Insurance Passport," and evidence-based premium coaching.</p>
+                <span class="repo-tag">Prototype</span>
+            </a>
+            <a href="https://github.com/sumanthp/AI-Native-CRM" target="_blank" class="repo-card glass-card fade-in">
+                <h4>AI-Native CRM</h4>
+                <p>An early exploration of what a CRM looks like when it's built AI-native from the ground up, rather
+                    than a traditional CRM with a chatbot bolted on.</p>
+                <span class="repo-tag">Early stage</span>
+            </a>
         </div>
     </section>
 
@@ -250,6 +313,13 @@
         </div>
 
         <div class="articles-grid">
+            <a href="https://sumanthpolisetty.substack.com/p/ai-engineer-interviews-in-2026" target="_blank"
+                class="article-card glass-card">
+                <span class="article-badge">LATEST</span>
+                <h4>AI Engineer Interviews in 2026</h4>
+                <p>What I've learned from the other side of the interview table.</p>
+                <span class="read-more">Read Article →</span>
+            </a>
             <a href="https://sumanthpolisetty.substack.com/p/the-hidden-cost-of-ai-coding-tools" target="_blank"
                 class="article-card glass-card">
                 <h4>The Hidden Cost of AI Coding Tools</h4>
@@ -272,6 +342,18 @@
                 class="article-card glass-card">
                 <h4>Age of Personal AI Operators</h4>
                 <p>Exploring the future of OpenClaw and Enterprise AI Operators.</p>
+                <span class="read-more">Read Article →</span>
+            </a>
+            <a href="https://sumanthpolisetty.substack.com/p/from-pretraining-to-rlhf" target="_blank"
+                class="article-card glass-card">
+                <h4>From Pretraining to RLHF</h4>
+                <p>How LLMs actually become useful — from pretraining through RLHF.</p>
+                <span class="read-more">Read Article →</span>
+            </a>
+            <a href="https://sumanthpolisetty.substack.com/p/self-hosting-llms-what-actually-matters" target="_blank"
+                class="article-card glass-card">
+                <h4>Self-Hosting LLMs: What Actually Matters</h4>
+                <p>What actually matters once you're past the local-model demo phase.</p>
                 <span class="read-more">Read Article →</span>
             </a>
         </div>
