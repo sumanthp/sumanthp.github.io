@@ -1,14 +1,17 @@
 :root {
     --bg-primary: #0a0a0f;
     --bg-secondary: #12121a;
-    --text-primary: #f8f8f8;
-    --text-secondary: #a0a0b0;
+    --text-primary: #f8f8fb;
+    --text-secondary: #adadc4;
     --accent-primary: #6366f1;
     --accent-secondary: #8b5cf6;
-    --gradient-text: linear-gradient(135deg, #a5b4fc 0%, #818cf8 100%);
-    --glass-bg: rgba(20, 20, 30, 0.4);
-    --glass-border: rgba(255, 255, 255, 0.08);
+    --accent-tertiary: #22d3ee;
+    --gradient-text: linear-gradient(120deg, #ffffff 0%, #c7d2fe 50%, #a5b4fc 100%);
+    --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    --glass-bg: rgba(24, 24, 36, 0.45);
+    --glass-border: rgba(255, 255, 255, 0.09);
     --shadow-subtle: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --glow-primary: 0 0 40px rgba(99, 102, 241, 0.22);
 }
 
 * {
@@ -88,7 +91,7 @@ a {
     left: 30%;
     width: 40vw;
     height: 40vw;
-    background: #3b82f6;
+    background: var(--accent-tertiary);
     animation-delay: -10s;
 }
 
@@ -168,16 +171,15 @@ a {
 }
 
 .btn-primary {
-    background: var(--accent-primary);
+    background: var(--gradient-primary);
     color: white;
     border: none;
     box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
 }
 
 .btn-primary:hover {
-    background: var(--accent-secondary);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+    box-shadow: 0 6px 24px rgba(139, 92, 246, 0.5);
 }
 
 .btn-secondary {
@@ -329,6 +331,36 @@ a {
     font-size: 0.95rem;
 }
 
+.cert-list {
+    list-style: none;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.cert-list li {
+    padding-left: 1.1rem;
+    position: relative;
+}
+
+.cert-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-tertiary);
+}
+
+.cert-source {
+    color: var(--text-secondary);
+    font-size: 0.85em;
+}
+
 /* Project Showcase */
 .project-showcase {
     display: grid;
@@ -412,7 +444,7 @@ a {
 .repo-tag {
     font-size: 0.75rem;
     font-weight: 600;
-    color: var(--accent-primary);
+    color: var(--accent-tertiary);
     letter-spacing: 0.5px;
 }
 
@@ -609,26 +641,95 @@ a {
 
 /* Architecture Diagram */
 .arch-diagram {
+    padding: 1.75rem;
+    margin-top: 1.5rem;
+    background:
+        linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+        rgba(13, 13, 20, 0.55);
+    background-size: 22px 22px, 22px 22px, auto;
+}
+
+.arch-diagram-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+    margin-bottom: 1.4rem;
+}
+
+.arch-flow {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.5rem;
-    margin-top: 1.5rem;
-    background: rgba(20, 20, 30, 0.4);
     overflow-x: auto;
 }
 
 .arch-node {
-    padding: 0.8rem 1.2rem;
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid var(--accent-primary);
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.9rem 1rem;
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.4);
+    border-radius: 10px;
     text-align: center;
     position: relative;
     z-index: 2;
-    min-width: 100px;
+    min-width: 108px;
+    transition: transform 0.2s ease;
+}
+
+.arch-node:hover {
+    transform: translateY(-3px);
+}
+
+.arch-node-icon {
+    font-size: 1.3rem;
+    line-height: 1;
+}
+
+.arch-node-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.arch-node-sub {
+    font-size: 0.62rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.arch-node.orchestrator {
+    box-shadow: 0 0 24px rgba(99, 102, 241, 0.18);
+}
+
+.arch-node.llm {
+    background: rgba(139, 92, 246, 0.08);
+    border-color: rgba(139, 92, 246, 0.45);
+    box-shadow: 0 0 24px rgba(139, 92, 246, 0.18);
+}
+
+.arch-node.mcp {
+    background: rgba(34, 211, 238, 0.08);
+    border-color: rgba(34, 211, 238, 0.45);
+    box-shadow: 0 0 24px rgba(34, 211, 238, 0.18);
+}
+
+.arch-node.endpoint {
+    min-width: 84px;
+    padding: 0.6rem 0.85rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--glass-border);
+}
+
+.arch-node.endpoint .arch-node-label {
+    font-size: 0.78rem;
 }
 
 .arch-endpoints {
@@ -639,11 +740,23 @@ a {
 
 .arch-arrow {
     position: relative;
-    color: var(--text-secondary);
-    margin: 0 0.5rem;
-    font-size: 1.5rem;
+    margin: 0 0.6rem;
     flex-grow: 1;
-    text-align: center;
+    min-width: 28px;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(165, 180, 252, 0.55), rgba(165, 180, 252, 0.08));
+}
+
+.arch-arrow::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid rgba(165, 180, 252, 0.65);
+    border-right: 2px solid rgba(165, 180, 252, 0.65);
+    transform: translateY(-50%) rotate(45deg);
 }
 
 .flow-dot {
@@ -652,10 +765,10 @@ a {
     left: 0;
     width: 6px;
     height: 6px;
-    background: #a5b4fc;
+    background: var(--accent-tertiary);
     border-radius: 50%;
     transform: translateY(-50%);
-    box-shadow: 0 0 8px #a5b4fc;
+    box-shadow: 0 0 10px var(--accent-tertiary);
     animation: flow 2s infinite linear;
     z-index: 3;
 }
@@ -699,10 +812,10 @@ a {
     top: 1rem;
     right: 1rem;
     padding: 0.25rem 0.6rem;
-    background: rgba(99, 102, 241, 0.15);
-    border: 1px solid rgba(99, 102, 241, 0.3);
+    background: rgba(34, 211, 238, 0.15);
+    border: 1px solid rgba(34, 211, 238, 0.35);
     border-radius: 20px;
-    color: #a5b4fc;
+    color: var(--accent-tertiary);
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -827,5 +940,86 @@ a {
 
     .premium-text {
         font-size: 2.5rem;
+    }
+
+    .section {
+        padding: 3.5rem 6%;
+    }
+
+    .section-title {
+        font-size: 1.9rem;
+        margin-bottom: 2rem;
+    }
+
+    .project-showcase {
+        padding: 1.75rem;
+    }
+
+    .project-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .project-actions,
+    .footer-content .btn-primary {
+        flex-wrap: wrap;
+    }
+
+    /* The LangGraph -> Bedrock -> MCP -> endpoints flow diagram was built
+       as a single horizontal row (min-width: 100px per node) and only
+       scrolled internally past ~600px — on a phone that reads as broken,
+       not "scrollable." Stack it vertically instead, rotating the arrows
+       (and the flowing dot inside them) to point down. */
+    .arch-flow {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+        overflow-x: visible;
+    }
+
+    .arch-node {
+        min-width: 0;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .arch-node-sub {
+        display: none;
+    }
+
+    .arch-arrow {
+        width: 28px;
+        height: 2px;
+        transform: rotate(90deg);
+        flex-grow: 0;
+        margin: 0.35rem auto;
+    }
+
+    .arch-endpoints {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .premium-text {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+    }
+
+    .section {
+        padding: 3rem 5.5%;
+    }
+
+    .terminal-prompts {
+        padding: 1rem;
+    }
+
+    .prompt-btn {
+        width: 100%;
+        text-align: center;
     }
 }

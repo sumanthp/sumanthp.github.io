@@ -38,6 +38,7 @@
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
+            <a href="#certifications">Certifications</a>
             <a href="#insights">Insights</a>
             <a href="#contact" class="btn-outline">Contact</a>
         </div>
@@ -59,7 +60,7 @@
                 <a href="#projects" class="btn-primary">View My Work</a>
                 <a href="https://sumanthpolisetty.substack.com/" target="_blank" class="btn-secondary">Read My
                     Substack</a>
-                <a href="Sumanth_Polisetty_DataScientist.pdf" download class="btn-outline">Download Resume</a>
+                <a href="Sumanth_Polisetty_AI_Engineer.pdf" download class="btn-outline">Download Resume</a>
             </div>
             <div class="social-links">
                 <a href="https://github.com/sumanthp" target="_blank" aria-label="GitHub">
@@ -108,21 +109,27 @@
         <h2 class="section-title">Technical Expertise</h2>
         <div class="skills-grid">
             <div class="glass-card feature-card">
-                <div class="feature-icon">🤖</div>
-                <h3>GenAI & LLMs</h3>
-                <p>Agentic RAG, Multi-Agentic Systems, LangGraph, Model Context Protocol (MCP), AWS Bedrock, OpenAI,
-                    Claude.</p>
+                <div class="feature-icon">🧠</div>
+                <h3>Agentic & GenAI</h3>
+                <p>Agentic RAG, Multi-Agent Systems, LangGraph, Model Context Protocol (MCP), AWS Bedrock, AgentCore,
+                    LLM-as-Judge, OpenAI, Claude, LangChain, Cohere.</p>
             </div>
             <div class="glass-card feature-card">
                 <div class="feature-icon">☁️</div>
                 <h3>MLOps & Cloud</h3>
-                <p>AWS (SageMaker, Lambda, OpenSearch), Azure (AKS, AI Foundry, Cognitive Search), Docker, Kubernetes.
-                </p>
+                <p>AWS (SageMaker, Lambda, OpenSearch, ECS, ECR), Azure (AKS, AI Foundry, Cognitive Search, Azure
+                    OpenAI), Docker, Kubernetes.</p>
             </div>
             <div class="glass-card feature-card">
                 <div class="feature-icon">📊</div>
-                <h3>Data Science</h3>
-                <p>Python, Scikit-learn, Transformers, PyTorch, TensorFlow, Hugging Face, FAISS, ChromaDB.</p>
+                <h3>ML & Data</h3>
+                <p>Python, PyTorch, TensorFlow, Transformers, Hugging Face, Scikit-learn, Vector DBs (FAISS, ChromaDB,
+                    OpenSearch).</p>
+            </div>
+            <div class="glass-card feature-card">
+                <div class="feature-icon">🛠️</div>
+                <h3>Engineering</h3>
+                <p>Git, FastAPI, Node.js, TypeScript, JMeter, Postman, Claude Code, Cursor.</p>
             </div>
         </div>
     </section>
@@ -251,18 +258,31 @@
                         across SAP, Coupa, and Tipalti.</p>
 
                     <div class="arch-diagram glass-card">
-                        <div class="arch-node orchestrator">LangGraph</div>
-                        <div class="arch-arrow">→<div class="flow-dot"></div>
-                        </div>
-                        <div class="arch-node llm">AWS Bedrock</div>
-                        <div class="arch-arrow">→<div class="flow-dot delay-1"></div>
-                        </div>
-                        <div class="arch-node mcp">MCP Server</div>
-                        <div class="arch-arrow">→<div class="flow-dot delay-2"></div>
-                        </div>
-                        <div class="arch-endpoints">
-                            <div class="arch-node endpoint">Data Source 1</div>
-                            <div class="arch-node endpoint">Data Source 2</div>
+                        <span class="arch-diagram-label">Production architecture — financial close automation</span>
+                        <div class="arch-flow">
+                            <div class="arch-node orchestrator">
+                                <span class="arch-node-icon">🧠</span>
+                                <span class="arch-node-label">LangGraph</span>
+                                <span class="arch-node-sub">Orchestrator</span>
+                            </div>
+                            <div class="arch-arrow"><span class="flow-dot"></span></div>
+                            <div class="arch-node llm">
+                                <span class="arch-node-icon">☁️</span>
+                                <span class="arch-node-label">AWS Bedrock</span>
+                                <span class="arch-node-sub">AgentCore</span>
+                            </div>
+                            <div class="arch-arrow"><span class="flow-dot delay-1"></span></div>
+                            <div class="arch-node mcp">
+                                <span class="arch-node-icon">🔌</span>
+                                <span class="arch-node-label">MCP Server</span>
+                                <span class="arch-node-sub">Secure endpoints</span>
+                            </div>
+                            <div class="arch-arrow"><span class="flow-dot delay-2"></span></div>
+                            <div class="arch-endpoints">
+                                <div class="arch-node endpoint"><span class="arch-node-label">SAP</span></div>
+                                <div class="arch-node endpoint"><span class="arch-node-label">Coupa</span></div>
+                                <div class="arch-node endpoint"><span class="arch-node-label">Tipalti</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -298,6 +318,28 @@
                         consumer products. Optimized REST API performance by 25% with AWS Lambda-based serverless
                         functions.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="section fade-in">
+        <h2 class="section-title">Certifications & Awards</h2>
+        <div class="skills-grid">
+            <div class="glass-card feature-card">
+                <div class="feature-icon">🏅</div>
+                <h3>Certifications</h3>
+                <ul class="cert-list">
+                    <li>Claude Partner Badge: Claude Code — Anthropic <span class="cert-source">(Credly)</span></li>
+                </ul>
+            </div>
+            <div class="glass-card feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3>Awards & Recognition</h3>
+                <ul class="cert-list">
+                    <li>Tavant Excellence Award — 2023, 2025</li>
+                    <li>McAfee Innovation Summit — Top 5, Hack The Flag</li>
+                    <li>Winner, McAfee Geekathon (2019)</li>
+                </ul>
             </div>
         </div>
     </section>
